@@ -1,0 +1,11 @@
+.history {
+    max-width: 100%;
+    border-radius: 0.5vw;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.7vh;
+    text-align: left;
+    background-color: transparent;
+    color: white;
+    border: none;
+    white-space: pre-wrap;
+}

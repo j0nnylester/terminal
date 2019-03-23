@@ -1,0 +1,10 @@
+.title {
+    font-weight: lighter;
+    margin-top: 10vh;
+    font-size: 4vh;
+    color: white;
+    font-family: "Courier New", Courier, monospace;
+    text-decoration: none;
+    text-align: center;
+    overflow: hidden;
+}

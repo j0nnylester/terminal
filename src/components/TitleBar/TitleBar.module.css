@@ -1,0 +1,29 @@
+.titleBar {
+    background-color: #101010;
+    border-radius: 0.5vw;
+    width: 100%;
+    height: 3vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.circles {
+    display: flex;
+    flex-direction: row;
+}
+
+.circle {
+    height: 1.5vh;
+    width: 1.5vh;
+    border-radius: 50%;
+    margin: 0.75vh 0vh 0vh 1.2vh;
+    cursor: pointer;
+}
+
+.title {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.7vh;
+    margin: 0.7vh 50% 0% 0%;
+    transform: translateX(50%);
+}

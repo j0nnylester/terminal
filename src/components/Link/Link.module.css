@@ -1,0 +1,17 @@
+.link {
+    color: grey;
+    font-weight: lighter;
+    font-size: 2vh;
+    padding: 2vh;
+    font-weight: lighter;
+    font-family: "Courier New", Courier, monospace;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: lightgrey;
+}
+
+.link:visited {
+    color: mediumpurple;
+}

@@ -1,0 +1,20 @@
+.window {
+    margin-top: 5vh;
+    /* width: 60vw;
+    height: 70vh; */
+    background-color: #202020;
+    border-radius: 0.5vw;
+}
+
+.view {
+    max-width: 100%;
+    max-height: 95%;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 1.7vh;
+    text-align: left;
+    margin: 0.1vw 0.2vw 0vw 0.5vw;
+    background-color: transparent;
+    color: white;
+    border: none;
+    overflow-x: scroll;
+}
