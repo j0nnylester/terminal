@@ -10,7 +10,7 @@
     font-family: "Courier New", Courier, monospace;
     font-size: 1.7vh;
     text-align: left;
-    transform: translateX(-0.15vw);
+    transform: translateX(-2px);
     background-color: transparent;
     color: white;
     border: none;
