@@ -4,6 +4,7 @@
     height: 70vh; */
     background-color: #202020;
     border-radius: 0.5vw;
+    transition: 175ms ease-in-out;
 }
 
 .view {

@@ -6,12 +6,14 @@ import History from "../History";
 import Shell from "../Shell";
 
 // const commitID = "a4760a499d51fe9aa87b0ce83aac660a981e233c";
-const gistID = "891d5c836d35a88d0d1db7f1e31d6800";
+const gistID = process.env.REACT_APP_GIST_ID;
 const gistURL = `https://gist.githubusercontent.com/j0nnylester/${gistID}/raw/aboutme.json`;
 class Terminal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            winMin: false,
+            winMax: false,
             winWidth: 60,
             winHeight: 70,
             help:
@@ -41,14 +43,16 @@ class Terminal extends React.Component {
         window.close();
     };
 
-    windowMin = () => {
-        this.setState(() => ({
-            winHeight: 0
+    windowMin = state => {
+        this.setState(state => ({
+            winHeight: 0,
+            winMin: !state.winMin
         }));
     };
 
-    windowMax = () => {
-        this.setState(() => ({
+    windowMax = state => {
+        this.setState(state => ({
+            winMax: !state.winMax,
             winHeight: 90,
             winWidth: 95
         }));
