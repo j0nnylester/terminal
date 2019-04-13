@@ -5,12 +5,15 @@ import TitleBar from "../TitleBar";
 import History from "../History";
 import Shell from "../Shell";
 
-const gistUrl =
-    "https://gist.githubusercontent.com/j0nnylester/891d5c836d35a88d0d1db7f1e31d6800/raw/e86651b50465b051301ef3488b528d49c3cb4a3f/aboutme.json";
+// const commitID = "a4760a499d51fe9aa87b0ce83aac660a981e233c";
+const gistID = process.env.REACT_APP_GIST_ID;
+const gistURL = `https://gist.githubusercontent.com/j0nnylester/${gistID}/raw/aboutme.json`;
 class Terminal extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            winMin: false,
+            winMax: false,
             winWidth: 60,
             winHeight: 70,
             help:
@@ -18,6 +21,7 @@ class Terminal extends React.Component {
             aboutme: "",
             contact: "",
             links: "",
+            projects: "",
             value: "",
             cmd_history: [
                 {
@@ -39,14 +43,16 @@ class Terminal extends React.Component {
         window.close();
     };
 
-    windowMin = () => {
-        this.setState(() => ({
-            winHeight: 0
+    windowMin = state => {
+        this.setState(state => ({
+            winHeight: 0,
+            winMin: !state.winMin
         }));
     };
 
-    windowMax = () => {
-        this.setState(() => ({
+    windowMax = state => {
+        this.setState(state => ({
+            winMax: !state.winMax,
             winHeight: 90,
             winWidth: 95
         }));
@@ -66,14 +72,20 @@ class Terminal extends React.Component {
         const [command] = target.value.toLowerCase().split(" ");
         if (key === "Enter") {
             switch (command.trim()) {
+                case "help":
+                    this.printOutput("help");
+                    break;
                 case "links":
                     this.printOutput("links");
                     break;
                 case "aboutme":
                     this.printOutput("aboutme");
                     break;
-                case "help":
-                    this.printOutput("help");
+                case "contact":
+                    this.printOutput("contact");
+                    break;
+                case "projects":
+                    this.printOutput("projects");
                     break;
                 case "exit":
                     window.close();
@@ -97,13 +109,14 @@ class Terminal extends React.Component {
 
     componentDidMount() {
         //fetch about me
-        fetch(`${gistUrl}`)
+        fetch(`${gistURL}`)
             .then(res => res.json())
             .then(data => {
                 this.setState(() => ({
                     aboutme: data.aboutme,
                     contact: data.contact,
-                    links: data.links
+                    links: data.links,
+                    projects: data.projects
                 }));
             })
             .catch(err => console.error(err));
